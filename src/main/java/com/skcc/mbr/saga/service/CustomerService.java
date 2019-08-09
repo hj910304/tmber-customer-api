@@ -14,12 +14,15 @@ public class CustomerService {
 	CustomerRepository customerRepository;
 	
 	public List<Customer> getAllCustomer(){
-		List<Customer> list = customerRepository.findAll(); 
-		return list; 
+		return customerRepository.findAll(); 
 	}
 	
 	public Object insertCustomer(String custId, String custName, String grade) {
 		Customer customer = Customer.builder().cust_id(custId).cust_name(custName).grade(grade).build();
 		return customerRepository.save(customer);
+	}
+	
+	public Customer getOneCustomer(String custId) {
+		return customerRepository.getOne(custId);
 	}
 }

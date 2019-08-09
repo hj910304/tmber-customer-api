@@ -14,7 +14,7 @@ import com.skcc.mbr.saga.service.CustomerService;
 import io.swagger.annotations.Api;
 
 @EnableAutoConfiguration
-@Api(value="main", description="Entry test controller")
+@Api(value="main", description="Customer test controller")
 @RequestMapping("/entry")
 @RestController
 public class CustomerController {
@@ -30,5 +30,10 @@ public class CustomerController {
 	@RequestMapping(value="insertCustomer", method=RequestMethod.GET)
 	public Object insertCustomer(String custId, String custName, String grade) {
 		return customerService.insertCustomer(custId, custName, grade);
+	}
+	
+	@RequestMapping(value="getOneCustomer", method=RequestMethod.GET)
+	public Customer getOneCustomer(String custId) {
+		return customerService.getOneCustomer(custId);
 	}
 }
