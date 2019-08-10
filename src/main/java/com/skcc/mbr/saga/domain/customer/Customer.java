@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
@@ -18,6 +20,7 @@ import lombok.ToString;
 @Table(name="EVENT_CUSTOMER")
 @ToString
 @Getter
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Customer implements Serializable{
 	
 	private static final long serialVersionUID = 1L;

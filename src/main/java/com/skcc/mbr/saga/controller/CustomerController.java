@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,8 +16,9 @@ import io.swagger.annotations.Api;
 
 @EnableAutoConfiguration
 @Api(value="main", description="Customer test controller")
-@RequestMapping("/entry")
+@RequestMapping("/customer")
 @RestController
+@CrossOrigin(origins="*")
 public class CustomerController {
 	
 	@Autowired 
@@ -36,4 +38,7 @@ public class CustomerController {
 	public Customer getOneCustomer(String custId) {
 		return customerService.getOneCustomer(custId);
 	}
+	
+	
+	
 }
