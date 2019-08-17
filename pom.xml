@@ -19,7 +19,7 @@
 		<java.version>1.8</java.version>
 		<springfox-swagger2.version>2.9.2</springfox-swagger2.version>
 	</properties>
-
+  <packaging>war</packaging>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
