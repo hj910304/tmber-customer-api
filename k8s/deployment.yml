@@ -1,0 +1,35 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: tmbr-customer-api
+  labels:
+    app: tmbr-customer-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tmbr-customer-api
+      version: '0.1'
+  template:
+    metadata:
+      labels:
+        app: tmbr-customer-api
+        version: '0.1'
+    spec:
+      containers:
+      - name: tmbr-customer-api
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: dev
+        image: twdd.icp.skt.com:8500/msa-training/tmbr-customer-api:0.0.1
+        ports:
+        - containerPort: 7070
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 1000m
+            memory: 2048Mi
+          limits:
+            cpu: 2000m
+            memory: 2048Mi
+

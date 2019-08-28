@@ -1,13 +1,13 @@
-spring:
-  profiles: container
-  jpa:
-    database: MYSQL
-    hibernate:
-      ddl-auto: validate
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://10.200.10.1:3306/eventuate
-    username: mysqluser
-    password : mysqlpw
 server:
   port: 7070
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+  profiles:
+    active: local
